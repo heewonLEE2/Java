@@ -297,7 +297,7 @@ public class ExMemoPad extends JFrame {
    String time = now.format(formatter);
 
    // 파일 이름, gson
-   File file = new File("C:\\heewon\\pub2504\\files\\memo_" + time + ".json");
+   File file = new File("C:\\pub2504\\files\\memo\\memo_" + time + ".json");
    Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
    // 파일 추가 메소드
