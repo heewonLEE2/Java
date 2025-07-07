@@ -2,7 +2,6 @@ package pub2504.gui;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
@@ -20,9 +19,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
-import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -127,7 +126,6 @@ public class JTableRest extends JFrame {
 						model.addRow(
 								new Object[] { todo.getUserId(), todo.getId(), todo.getTitle(), todo.isCompleted() });
 					}
-
 				});
 			}
 
