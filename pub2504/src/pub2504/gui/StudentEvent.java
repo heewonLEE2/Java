@@ -10,10 +10,21 @@ public class StudentEvent {
 	StudentUI studentUI = new StudentUI();
 	
 	
+	// 버튼 이벤트리스너 등록
+	
+	//StudentUI.getBtn.addActionListener(e->new StudentEvent().loadStudents());
+	//	studentUI.postBtn addActionListener(e->new StudentEvent().postStudents());
+	//	studentUI.putBtn addActionListener(e->new StudentEvent().modifyStudent());
+	//	studentUI.delBtn addActionListener(e->new StudentEvent().delStudent());
+	
+	
+
+	
+	
+	
 	// GET 버튼 클릭
 	public void loadStudents() {
 		StudentRest.getStudent(StudentMain.API_URL);
-		
 	} // loadStudents()
 	
 	// POST 버튼 클릭 화면 Dailog 보여주기

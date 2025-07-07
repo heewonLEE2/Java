@@ -30,8 +30,16 @@ public class StudentUI extends JFrame{
 	public static JTextField tfUserKor;
 	public static JTextField tfUserEng;
 	public static JTextField tfUserMath;
+	public static JPanel btnPanel;
+	public static JButton  getBtn;
+	public static JButton  postBtn;
+	public static JButton  putBtn;
+	public static JButton  delBtn;
+	
+	
 	
 		// 초기화 메소드
+	
 		public void init() {
 			
 			setTitle("JTable MyJson Server Rest API 연동"); // 프레임 제목
@@ -55,11 +63,11 @@ public class StudentUI extends JFrame{
 			add(new JScrollPane(table), BorderLayout.CENTER);
 			
 			// 버튼 패널
-			JPanel btnPanel = new JPanel();
-			JButton  getBtn = new JButton("GET");
-			JButton  postBtn = new JButton("POST");
-			JButton  putBtn = new JButton("PUT");
-			JButton  delBtn = new JButton("DELETE");
+			btnPanel = new JPanel();
+			getBtn = new JButton("GET");
+			postBtn = new JButton("POST");
+			putBtn = new JButton("PUT");
+			delBtn = new JButton("DELETE");
 			btnPanel.add(getBtn);
 			btnPanel.add(postBtn);
 			btnPanel.add(putBtn);
@@ -68,11 +76,13 @@ public class StudentUI extends JFrame{
 			// 버튼 패널을 프레임의 SOUTH에 붙임
 			add(btnPanel, BorderLayout.SOUTH);
 			
-			// 버튼 이벤트리스너 등록
 			getBtn.addActionListener(e->new StudentEvent().loadStudents());
 			postBtn.addActionListener(e->new StudentEvent().postStudents());
 			putBtn.addActionListener(e->new StudentEvent().modifyStudent());
 			delBtn.addActionListener(e->new StudentEvent().delStudent());
+			
+			
+			
 			
 			setVisible(true);
 			

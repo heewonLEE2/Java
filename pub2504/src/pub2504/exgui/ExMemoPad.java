@@ -6,8 +6,10 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -37,8 +39,11 @@ import javax.swing.event.MenuKeyEvent;
 import javax.swing.event.MenuKeyListener;
 import javax.swing.event.MenuListener;
 
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import pub2504.gui.Student;
 
 // 과제 : GUI 메모장 프로그램 (V3, V4) ~ 7/6, 능력단위평가 대체
 
@@ -288,8 +293,10 @@ public class ExMemoPad extends JFrame {
       }
    } // addButtons()
 
-   // 파일 추가 관련 메소드
+   ///// 파일 추가 관련 메소드///////
    BufferedWriter bw = null;
+   BufferedReader br = null;
+   
    
    // 현재 시간 가져오기
    LocalDateTime now = LocalDateTime.now();
@@ -326,10 +333,36 @@ public class ExMemoPad extends JFrame {
       // chooser 객체 생성
       JFileChooser chooser = new JFileChooser();
       // 디렉토리 설정
-      chooser.setCurrentDirectory(new File("C:\\heewon\\pub2504"));
+      chooser.setCurrentDirectory(new File("C:\\pub2504\\files\\memo"));
       chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
       chooser.showOpenDialog(null);
 
+      try {
+    	  
+    	  br = new BufferedReader(new FileReader(chooser.getSelectedFile()));
+    	  
+    	  StringBuilder sb = new StringBuilder();
+    	  String line = "";
+    	  while((line = br.readLine())!=null) {
+    		  sb.append(line).append("\n");
+    	  }
+    	  
+    	  List<Memo> memoList = gson.fromJson(sb.toString(),  new TypeToken<List<Memo>>() {
+			}.getType());
+    	  
+    	  System.out.println(sb);
+    	  
+      } catch(IOException ioe) {
+    	  ioe.printStackTrace();
+      }finally {
+		try {
+			br.close();
+		}catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
+	}
+      
+      
    }// openFolder()
 
    public static void main(String[] args) {
@@ -337,3 +370,11 @@ public class ExMemoPad extends JFrame {
    }
 
 }
+
+
+
+
+
+
+
+
