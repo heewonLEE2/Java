@@ -24,7 +24,7 @@ public class MenuMain {
 		WeatherAPIClient.WeatherInfo weather = WeatherAPIClient.getWeatherInfo(NX, NY, SERVICE_KEY);
 
 		System.out.printf("▶ 현재 날씨 기준 - 강수확률: %d%%, 기온: %.1f°C%n", weather.rainProbability, weather.temperature);
-
+		
 		// 전체 메뉴
 		List<String> menuList = new ArrayList<>(Arrays.asList("짬뽕", "비빔밥", "칼국수", "냉모밀", "돈까스", "쭈꾸미", "오징어", "부대찌개",
 				"전골", "콩국수", "닭볶음탕", "아지매국밥", "순대국밥", "김밥천국", "삼계탕", "된장전골", "북엇국", "샤브샤브", "김치찌개", "물회"));
@@ -32,7 +32,7 @@ public class MenuMain {
 		// 비올때, 더울때 제외 음식 리스트
 		List<String> rainExcluded = Arrays.asList("칼국수", "콩국수", "김밥천국", "냉모밀", "물회", "전골");
 		List<String> hotExcluded = Arrays.asList("부대찌개", "전골", "닭볶음탕", "아지매국밥", "순대국밥", "된장전골", "샤브샤브", "김치찌개");
-
+		
 		// asList 로 List를 만들면 배열 추가를 못해서 ArrayList로 배열을 다시 만듬 (Heewon-07.05)
 		List<String> rainExcluded_1 = new ArrayList<String>(rainExcluded);
 		List<String> hotExcluded_1 = new ArrayList<String>(hotExcluded);
