@@ -1,6 +1,7 @@
 package pub2504.jdbc.board.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import oracle.sql.TIMESTAMP;
 
@@ -11,17 +12,17 @@ public class Article implements Serializable{
 	private int aid;
 	private String atitle;
 	private String acontent;
-	private TIMESTAMP aregdate;
+	private Timestamp aregdate;
 	private int acount;
 	private int afcount;
-	private String bdelyn;
+	private String adelyn;
 	private int bid;
 	private String mid;
 	
 	public Article() {
 	}
-
-	public Article(int aid, String atitle, String acontent, TIMESTAMP aregdate, int acount, int afcount, String bdelyn,
+	
+	public Article(int aid, String atitle, String acontent, Timestamp aregdate, int acount, int afcount, String adelyn,
 			int bid, String mid) {
 		this.aid = aid;
 		this.atitle = atitle;
@@ -29,7 +30,7 @@ public class Article implements Serializable{
 		this.aregdate = aregdate;
 		this.acount = acount;
 		this.afcount = afcount;
-		this.bdelyn = bdelyn;
+		this.adelyn = adelyn;
 		this.bid = bid;
 		this.mid = mid;
 	}
@@ -58,11 +59,11 @@ public class Article implements Serializable{
 		this.acontent = acontent;
 	}
 
-	public TIMESTAMP getAregdate() {
+	public Timestamp getAregdate() {
 		return aregdate;
 	}
 
-	public void setAregdate(TIMESTAMP aregdate) {
+	public void setAregdate(Timestamp aregdate) {
 		this.aregdate = aregdate;
 	}
 
@@ -82,20 +83,12 @@ public class Article implements Serializable{
 		this.afcount = afcount;
 	}
 
-	public String getBdelyn() {
-		return bdelyn;
+	public String getAdelyn() {
+		return adelyn;
 	}
 
-	public void setBdelyn(String bdelyn) {
-		this.bdelyn = bdelyn;
-	}
-
-	public int getBid() {
-		return bid;
-	}
-
-	public void setBid(int bid) {
-		this.bid = bid;
+	public void setAdelyn(String adelyn) {
+		this.adelyn = adelyn;
 	}
 
 	public String getMid() {
@@ -106,13 +99,20 @@ public class Article implements Serializable{
 		this.mid = mid;
 	}
 
+	public int getBid() {
+		return bid;
+	}
+
+	public void setBid(int bid) {
+		this.bid = bid;
+	}
+
 	@Override
 	public String toString() {
 		return "Article [aid=" + aid + ", atitle=" + atitle + ", acontent=" + acontent + ", aregdate=" + aregdate
-				+ ", acount=" + acount + ", afcount=" + afcount + ", bdelyn=" + bdelyn + ", bid=" + bid + ", mid=" + mid
+				+ ", acount=" + acount + ", afcount=" + afcount + ", adelyn=" + adelyn + ", mid=" + mid + ", bid=" + bid
 				+ "]";
 	}
-	
 }
 
 

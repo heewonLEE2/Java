@@ -24,7 +24,7 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public List<Board> listBoard() throws SQLException {
-		String sql = " select bid, bname, bregdate, bdelyn " + " from board ";
+		String sql = " select bid, bname, bregdate, bdelyn " + " from board order by bid desc ";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		List<Board> boardList = new ArrayList<Board>();
@@ -42,10 +42,10 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public Board getBoard(int aid) throws SQLException {
-		String sql = " select bid, bname, bregdate, bdelyn " + " from board where mid=? ";
+	public Board getBoard(int bid) throws SQLException {
+		String sql = " select bid, bname, bregdate, bdelyn " + " from board where bid=? ";
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, aid);
+		pstmt.setInt(1, bid);
 		rs = pstmt.executeQuery();
 		Board board = new Board();
 		if (rs != null) {

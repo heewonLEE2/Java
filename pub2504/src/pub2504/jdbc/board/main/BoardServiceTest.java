@@ -19,19 +19,20 @@ public class BoardServiceTest {
 			
 			
 			// board 등록
-			Board board = new Board(0, "게시판3", null, null);
-			int result = boardService.registBoard(board);
+			int result = boardService.registBoard(new Board(0, "게시판3", null, null));
 			if(result > 0) System.out.println("입력성공");
 			
 			// board allList
-			List<Board> boardList = boardService.listBoard();
-			boardList.stream().forEach(System.out::println);
+			boardService.listBoard().stream().forEach(System.out::println);
 			
 			// board modify
 			boardService.modifyBoard(new Board(21, "수정 게시판3", null, null));
 			
 			// board delete
 			boardService.removeBoard(22);
+			
+			// board get
+			System.out.println(boardService.getBoard(21));
 			
 		} catch(SQLException sqle) {
 			sqle.printStackTrace();

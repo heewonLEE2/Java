@@ -1,19 +1,20 @@
 package pub2504.jdbc.board.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import pub2504.jdbc.board.model.Reply;
 
 public interface ReplyService {
 
-	public abstract List<Reply> listReply();
+	public abstract List<Reply> listReply()  throws SQLException;
 
-	public abstract Reply getReply(int rid);
+	public abstract Reply getReply(int rid)  throws SQLException;
 
-	public abstract int registReply(Reply reply);
+	public abstract int registReply(Reply reply)  throws SQLException;
 
-	public abstract int modifyReply(Reply reply);
+	public abstract int modifyReply(Reply reply)  throws SQLException;
 
-	public abstract int removeReply(int rid);
+	public abstract int removeReply(int rid)  throws SQLException;
 
 }

@@ -15,12 +15,12 @@ public class MemberServiceTest {
 			
 			MemberService memberService = new MemberServiceImpl();
 //			
-//			// registMember
-//			Member member
-//				= new Member("HONG", "HONG","홍길동",null, null);
+			// registMember
+			Member member
+				= new Member("HONG", "HONG","홍길동",null, null);
 //			
-//			int result = memberService.registMember(member);
-//			if(result > 0) System.out.println("입력성공");
+			int result = memberService.registMember(member);
+			if(result > 0) System.out.println("입력성공");
 			
 			// listMember
 //			List<Member> memberList = memberService.listMember();
@@ -35,8 +35,8 @@ public class MemberServiceTest {
 //			if(result > 0 ) System.out.println(" 수정 완료 ! ");
 			
 			// removeMember
-			int result = memberService.removeMember("HONG");
-			if(result > 0 ) System.out.println(" 삭제 완료 ! ");
+//			int result = memberService.removeMember("HONG");
+//			if(result > 0 ) System.out.println(" 삭제 완료 ! ");
 			
 		} catch(SQLException sqle) {
 			sqle.printStackTrace();
